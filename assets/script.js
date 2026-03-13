@@ -6,6 +6,7 @@ const box = document.getElementById("box");
 async function gerarCSS() {
     const prompt = document.querySelector("textarea").value;
     textoCodigo.textContent = "Gerando CSS...";
+    btnCopiar.classList.add("oculto");
 
     try {
         const response = await fetch("/api/gerar", {
@@ -28,7 +29,7 @@ async function gerarCSS() {
 
         if (respostaIA === "" || respostaIA.toLowerCase().includes("não foi possível gerar o código, digite algo que seja coerente.")) {
             box.srcdoc = "";
-            btnCopiar.classList.add("oculto");
+            textoCodigo.textContent = respostaIA;
             return;
         }
 

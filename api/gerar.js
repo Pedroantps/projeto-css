@@ -1,19 +1,15 @@
 export default async function handler(req, res) {
-    // 1. Só aceita requisições do tipo POST
     if (req.method !== 'POST') {
         return res.status(405).json({ message: 'Método não permitido' });
     }
 
-    // 2. Pega o texto que o seu front-end enviou
     const { prompt } = req.body;
 
     try {
-        // 3. Faz a requisição para a Groq (Escondido no servidor!)
         const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                // Aqui ele lê o seu arquivo "privado" (.env)
                 "Authorization": `Bearer ${process.env.GROQ_API_KEY}` 
             },
             body: JSON.stringify({
@@ -28,7 +24,6 @@ export default async function handler(req, res) {
 
         const data = await response.json();
         
-        // 4. Devolve a resposta pronta para o seu Front-end
         res.status(200).json(data);
 
     } catch (error) {
