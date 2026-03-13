@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./assets/style.css">
+        <title>Css Generator</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    </head>
+
+    <body>
+        <h1>Css Generator <span>com IA</span> ⚡</h1>
+        <p>Gerador de CSS com IA é uma ferramenta que utiliza inteligência artificial para criar códigos CSS personalizados com base nas preferências do usuário. Ele pode gerar estilos para elementos como cores, fontes, layouts e animações, facilitando o processo de design web e economizando tempo para desenvolvedores e designers.</p>
+
+        <textarea id="promptUsuario" name="promptUsuario"rows="5" placeholder="Digite o que deseja criar..."></textarea>
+        <button id="btnGerar">Gerar CSS</button>
+
+        <div class="output-container">
+            <div class="output-box">
+                <h3>Código:</h3>
+                <pre id="caixaCodigo"><img  class="oculto" id="btnCopiar" src="./assets/copiar-documento.png" alt="Copiar Texto"><code id="textoCodigo"></code></pre>
+            </div>
+
+            <div class="output-box">
+                <h3>Visualização:</h3>
+                <iframe id="box"></iframe>
+            </div>
+        </div>
+    </body>
+
+    <script src="./assets/script.js"></script>
+</html>
